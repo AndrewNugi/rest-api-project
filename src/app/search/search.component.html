@@ -1,0 +1,12 @@
+<div class="search-container">
+    <div class="searchbox">
+        <input type="text" [(ngModel)]="countryName" placeholder="Search" (keydown.enter)="onSearch()" class="search1">
+        <button class="btn-search" (click)="onSearch()">Search</button>
+    </div>
+
+    <div class="search-results">
+        <ul>
+            <li class="result" *ngFor="let result of searchResults | async" (click)="onCountryClicked(result.name.common)">{{result.name.common}} {{result.region}}</li>
+        </ul>
+    </div>
+</div>

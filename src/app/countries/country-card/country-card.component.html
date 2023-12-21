@@ -1,0 +1,13 @@
+<!-- {{countries | async | json}} -->
+
+<div class="container mt-5">
+
+    <div class="card-content" *ngFor="let country of countries | async" (click)="onCountryClicked(country.name.common)">
+        <img *ngIf="country.flags.png" [src]="country.flags.png" alt="" class="card-image">
+        <h6 class="title">{{country.name.common}}</h6>
+        <h6 class="title">{{country.name.official}}</h6>
+        <p *ngIf="country.population"><span class="label">Population: </span>{{country.population | number}}</p>
+        <p *ngIf="country.region"><span class="label">Region: </span>{{country.region}}</p>
+        <p *ngIf="country.capital"><span class="label">Capital: </span>{{country.capital}}</p>
+    </div>
+</div>

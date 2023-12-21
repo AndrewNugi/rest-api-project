@@ -1,0 +1,15 @@
+<form (ngSubmit)="addCountry()">
+    <label for="name">Country Name:</label>
+    <input type="text" id="name" [(ngModel)]="newCountry.name.common" name="name" required>
+    <label for="capital">Country Capital:</label>
+    <input type="text" id="capital" [(ngModel)]="newCountry.capital" name="capital" required>
+    <label for="region">Country Region:</label>
+    <input type="text" id="region" [(ngModel)]="newCountry.region" name="region" required>
+    <label for="population">Country Population:</label>
+    <input type="number" id="population" [(ngModel)]="newCountry.population" name="population" required>
+  
+    <!-- Add other form fields as needed for other properties in newCountry -->
+  
+    <button type="submit">Add Country</button>
+</form>
+    

@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <div>
+      <label for="regionSelect">Select a Region:</label>
+      <select id="regionSelect" name="regions" [(ngModel)]="region" (change)="onFilter()">
+        <option value="" disabled>Select Region</option>
+        <option *ngFor="let country of countries | async" [value]="country.region">
+          {{ country.region }}
+        </option>
+      </select>
+    </div>
+</div> 
+<div class="container mt-6" >
+    <div *ngIf="filteredCountries$ | async as filteredCountries">
+      <div class="card-content" *ngFor="let country of filteredCountries" (click)="onCountryClicked(country.name.common)">
+        <img *ngIf="country.flags.png" [src]="country.flags.png" alt="" class="card-image">
+        <h6 class="title">{{country.name.common}}</h6>
+        <h6 class="title">{{country.name.official}}</h6>
+        <p *ngIf="country.region"><span class="label">Region: </span>{{country.region}}</p>
+        <p *ngIf="country.capital"><span class="label">Capital: </span>{{country.capital}}</p>
+      </div>
+    </div>
+</div> 
+
+  

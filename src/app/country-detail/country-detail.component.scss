@@ -1,0 +1,22 @@
+span {
+    font-weight: 600;
+}
+.container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+}
+.container-content{
+    margin: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    transition: 0.3s all ease-in-out;
+    background-color: var(--elements-color);
+    justify-content: space-between;
+}
+p{
+    margin: 2px;
+}
