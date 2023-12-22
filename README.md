@@ -22,23 +22,23 @@ Angular CLI - Command Line Interface for Angular
 Tailwind CSS - 
 
 1. Clone the repository
-
+```
 git clone https://github.com/AndrewNugi/rest-api-project.git
 cd rest-api-project
-
+```
 2. Install dependencies
-
+```
 npm install
-
+```
 3. Install TailWind CSS to style the application and create its configuration file
-  
+```
 npm install tailwindcss
 npx tailwindcss init -p
-
+```
 4. Run 'ng-serve' to get the development server.
-
+```
    ng serve
-
+```
 
   
   
