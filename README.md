@@ -37,7 +37,7 @@ npx tailwindcss init -p
 ```
 4. Run 'ng-serve' to get the development server.
 ```
-   ng serve
+ng serve
 ```
 
   
