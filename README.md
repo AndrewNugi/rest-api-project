@@ -16,10 +16,10 @@ Run `ng build` to build the project.
 
 To get started with this project, you'll need to have the following installed:
 
-Node.js - JavaScript runtime
-npm - Node Package Manager
-Angular CLI - Command Line Interface for Angular
-Tailwind CSS - 
+Node.js - JavaScript runtime  
+npm - Node Package Manager  
+Angular CLI - Command Line Interface for Angular  
+Tailwind CSS -    
 
 1. Clone the repository
 ```
