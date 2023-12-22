@@ -3,6 +3,8 @@ import { CountryService } from '../../shared/country.service';
 import { CountryResponse } from '../../shared/models/country';
 import { Region, Side, StartOfWeek, Status } from '../../shared/models/country';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-add-country',
@@ -63,7 +65,9 @@ export class AddCountryComponent {
   statuses = Object.values(Status);
   startOfWeeks = Object.values(StartOfWeek);
 
-  constructor(private countryService: CountryService, private router: Router ) {}
+  
+
+  constructor(private countryService: CountryService, private router: Router, private readonly http: HttpClient ) {}
 
   addCountry() {
     this.countryService.addCountry(this.newCountry).subscribe({
@@ -77,4 +81,41 @@ export class AddCountryComponent {
       }
   });
   }
+
+  onFileChange(event: any, fileType: string) {
+    const file = event.target.files[0];
+
+    if (fileType === 'png') {
+      this.newCountry.coatOfArms.png = file;
+    } else if (fileType === 'svg') {
+      this.newCountry.coatOfArms.svg = file;
+    }
+  }
+
+  onFileChange2(event: any, fileType: string) {
+    const file = event.target.files[0];
+
+    if (fileType === 'png') {
+      this.newCountry.flags.png = file;
+    } else if (fileType === 'svg') {
+      this.newCountry.flags.svg = file;
+    }
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('flags', this.newCountry.flags.png);
+    formData.append('flags', this.newCountry.flags.svg);
+
+
+    this.http.post(`${environment.baseUrl}`, formData)
+    .subscribe({
+      next: (response: any) => {
+        console.log('Response:', response);
+      },
+      error: (error: any) => {
+        console.error('Error:', error);
+      }
+    });
+}
 }

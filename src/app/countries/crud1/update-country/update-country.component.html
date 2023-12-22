@@ -28,16 +28,16 @@
         <label for="area">Country Area:</label>
         <input type="number" id="area" [(ngModel)]="updateFormData.area" name="area" required placeholder="Enter country's area in km2">
         <label for="flags">Country Flag:</label>
-        <input type="text" id="flagPNG" [(ngModel)]="updateFormData.flags.png" name="flagPNG" >
-        <input type="text" id="flagSVG" [(ngModel)]="updateFormData.flags.svg" name="flagSVG" >
+        <input type="file" (change)="onFileChange2($event, 'png')" accept=".png" id="flagsPNG" name="flagsPNG" >
+        <input type="file" (change)="onFileChange2($event, 'svg')" accept=".svg" id="flagsSVG" name="flagsSVG" >
         <label for="maps">Country Map:</label>
         <input type="text" id="googleMap" [(ngModel)]="updateFormData.maps.googleMaps" name="googleMap" >
         <input type="text" id="openStreetMaps" [(ngModel)]="updateFormData.maps.openStreetMaps" name="openStreetMaps" >
         <label for="population">Country Population:</label>
         <input type="number" id="population" [(ngModel)]="updateFormData.population" name="population" placeholder="Enter country's populat">
         <label for="coatofarms">Country Coat of Arms:</label>
-        <input type="text" id="coatofarmsPNG" [(ngModel)]="updateFormData.coatOfArms.png" name="coatofarmsPNG" >
-        <input type="text" id="coatofarmsSVG" [(ngModel)]="updateFormData.coatOfArms.svg" name="coatofarmsSVG" >
+        <input type="file" (change)="onFileChange($event, 'png')" accept=".png" id="coatofarmsPNG" name="coatofarmsPNG">
+        <input type="file" (change)="onFileChange($event, 'svg')" accept=".svg" id="coatofarmsSVG" name="coatofarmsSVG">
         <label for="startofweek">Start of The Week:</label>
             <select id="startofweek" name="startofweek" [(ngModel)]="updateFormData.startOfWeek" >
                 <option *ngFor="let startOfWeek of startOfWeeks" [value]="startOfWeek">{{ startOfWeek }}</option>

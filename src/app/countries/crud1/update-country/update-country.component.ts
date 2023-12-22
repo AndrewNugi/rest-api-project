@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CountryResponse, Region, Side, StartOfWeek, Status } from '../../shared/models/country';
 import { CountryService } from '../../shared/country.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-country',
@@ -42,7 +44,7 @@ export class UpdateCountryComponent {
 
   constructor(
     private readonly countryService: CountryService,
-    private router: Router
+    private router: Router, private readonly http: HttpClient
   ) {}
 
   onUpdateCountry() {
@@ -64,4 +66,40 @@ export class UpdateCountryComponent {
     
   }
 
+  onFileChange(event: any, fileType: string) {
+    const file = event.target.files[0];
+
+    if (fileType === 'png') {
+      this.updateFormData.coatOfArms.png = file;
+    } else if (fileType === 'svg') {
+      this.updateFormData.coatOfArms.svg = file;
+    }
+  }
+
+  onFileChange2(event: any, fileType: string) {
+    const file = event.target.files[0];
+
+    if (fileType === 'png') {
+      this.updateFormData.flags.png = file;
+    } else if (fileType === 'svg') {
+      this.updateFormData.flags.svg = file;
+    }
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('flags', this.updateFormData.flags.png);
+    formData.append('flags', this.updateFormData.flags.svg);
+
+
+    this.http.post(`${environment.baseUrl}`, formData)
+    .subscribe({
+      next: (response: any) => {
+        console.log('Response:', response);
+      },
+      error: (error: any) => {
+        console.error('Error:', error);
+      }
+    });
+}
 }
