@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { CountryResponse } from '../../shared/models/country';
-import { Observable } from 'rxjs';
-import { CountryStorageService } from '../../shared/country-storage.service';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { CountryService } from '../../shared/country.service';
+import { CountryResponse } from '../../shared/models/country';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Continent, Region, Side, StartOfWeek, Status, Idd } from '../../shared/models/country';
+import { error } from 'console';
 
 @Component({
   selector: 'app-add-country',
@@ -12,31 +13,68 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddCountryComponent {
 
-  country: any = Observable<CountryResponse>;
-  submitted = false;
+  newCountry: CountryResponse = {
+    name: {
+      common: '',
+      official: ''
+    },
+    cca2: '',
+    cca3: '',
+    status: Status.OfficiallyAssigned,
+    unMember: false,
+    idd: {
+      root: '',
+    },
+    altSpellings: [],
+    region: Region.Africa,
+    subregion: '',
+    translations: {
+      official:'',
+      common:''
+    },
+    latlng: [],
+    landlocked: false,
+    area: 0,
+    flag: '',
+    maps: {
+      googleMaps:'',
+      openStreetMaps: ''
+    },
+    population: 0,
+    car: {
+      signs: [],
+      side:   Side.Left,
+    },
+    timezones: [],
+    continents: [],
+    flags: {
+      png:'',
+      svg:'',
+    },
+    coatOfArms: {
+      png:'',
+      svg:'',
+    },
+    startOfWeek: StartOfWeek.Monday,
+    capitalInfo: {
+      latlng: [],
+    }
+  };
 
-  constructor(private readonly http: HttpClient, private readonly countryStorageService: CountryStorageService, private router: Router, private route: ActivatedRoute) { }
+  regions = Object.values(Region);
+  statuses = Object.values(Status);
+  startOfWeeks = Object.values(StartOfWeek);
 
-  ngOnInit():void {
+  constructor(private countryService: CountryService) {}
 
-  }
-
-  saveCountry(): void{
-    const newCountry = {
-    };
-
-    this.countryStorageService.addCountry(newCountry).subscribe({
-      next:(res) => {
-        console.log(res);
-        this.submitted = true;
+  addCountry() {
+    this.countryService.addCountry(this.newCountry).subscribe({
+      next: (addedCountry: CountryResponse) => {
+        // Handle success, e.g., navigate to the country list
+      },
+      error: (error: any) => {
+        // Handle error
       }
-    })
-
+  });
   }
-  this.CountryService.addCountry() {
-  
-  }
-
-
-
 }

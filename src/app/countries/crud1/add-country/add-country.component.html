@@ -1,15 +1,51 @@
 <form (ngSubmit)="addCountry()">
-    <label for="name">Country Name:</label>
-    <input type="text" id="name" [(ngModel)]="newCountry.name.common" name="name" required>
-    <label for="capital">Country Capital:</label>
-    <input type="text" id="capital" [(ngModel)]="newCountry.capital" name="capital" required>
-    <label for="region">Country Region:</label>
-    <input type="text" id="region" [(ngModel)]="newCountry.region" name="region" required>
-    <label for="population">Country Population:</label>
-    <input type="number" id="population" [(ngModel)]="newCountry.population" name="population" required>
-  
+    <div class="form-group">
+        <label for="name">Country Name:</label>
+        <input type="text" id="commonName" [(ngModel)]="newCountry.name.common" name="commonName" required placeholder="Enter country name">
+        <input type="text" id="officialName" [(ngModel)]="newCountry.name.official" name="officialName" required placeholder="Enter country's offical name">
+        <label for="capital">Country Code:</label>
+        <input type="text" id="cca2" [(ngModel)]="newCountry.cca2" name="cca2" placeholder="Enter cca2 Code">
+        <input type="text" id="cca3" [(ngModel)]="newCountry.cca3" name="cca3" placeholder="Enter cca3 Code">
+        <label for="region">Country Status:</label>
+            <select id="region" name="region" [(ngModel)]="newCountry.status" required>
+                <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+            </select>
+        <label for="unMember">Is the country a UN Member:</label>
+        <input type="checkbox" id="unMember" name="unMember" [(ngModel)]="newCountry.unMember">
+        <label for="Idd">Country Idd:</label>
+        <input type="text" id="Idd" [(ngModel)]="newCountry.idd" name="Idd" placeholder="Enter country idd">
+        <label for="capital">Country Capital:</label>
+        <input type="text" id="capital" [(ngModel)]="newCountry.capital" name="capital" required placeholder="Enter country's capital">
+        <label for="region">Country Region:</label>
+            <select id="region" name="region" [(ngModel)]="newCountry.region" required>
+                <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+            </select>
+        <label for="subregion">Country Sub-Region:</label>
+        <input type="text" id="subregion" [(ngModel)]="newCountry.subregion" name="subregion" placeholder="Enter country's subregion">
+        <label for="landlocked">Is the country landlocked:</label>
+        <input type="checkbox" id="landlocked" name="landlocked" [(ngModel)]="newCountry.landlocked" required>
+        <label for="area">Country Area:</label>
+        <input type="number" id="area" [(ngModel)]="newCountry.area" name="area" required placeholder="Enter country's area in km2">
+        <label for="flags">Country Flag:</label>
+        <input type="text" id="flagPNG" [(ngModel)]="newCountry.flags.png" name="flagPNG" >
+        <input type="text" id="flagSVG" [(ngModel)]="newCountry.flags.svg" name="flagSVG" >
+        <label for="maps">Country Map:</label>
+        <input type="text" id="googleMap" [(ngModel)]="newCountry.maps.googleMaps" name="googleMap" >
+        <input type="text" id="openStreetMaps" [(ngModel)]="newCountry.maps.openStreetMaps" name="openStreetMaps" >
+        <label for="population">Country Population:</label>
+        <input type="number" id="population" [(ngModel)]="newCountry.population" name="population" required placeholder="Enter country's populat">
+        <label for="coatofarms">Country Coat of Arms:</label>
+        <input type="text" id="coatofarmsPNG" [(ngModel)]="newCountry.coatOfArms.png" name="coatofarmsPNG" >
+        <input type="text" id="coatofarmsSVG" [(ngModel)]="newCountry.coatOfArms.svg" name="coatofarmsSVG" >
+        <label for="startofweek">Start of The Week:</label>
+            <select id="startofweek" name="startofweek" [(ngModel)]="newCountry.startOfWeek" >
+                <option *ngFor="let startOfWeek of startOfWeeks" [value]="startOfWeek">{{ startOfWeek }}</option>
+            </select>
+
+
+    </div>
     <!-- Add other form fields as needed for other properties in newCountry -->
   
     <button type="submit">Add Country</button>
 </form>
-    
+

@@ -1,0 +1,7 @@
+<div class="container mt-5">
+    <div class="searchbox">
+      <label for="countryName">Country Name:</label>
+      <input type="text" id="countryName" [(ngModel)]="countryName" (keydown.enter)="removeCountry()" placeholder="Enter country name">
+      <button class="btn-remove" (click)="removeCountry()">Remove Country</button>
+    </div>
+  </div>

@@ -1,0 +1,55 @@
+.container {
+    position: relative;
+    width: 300px;
+}
+.searchbox {
+    margin: auto;
+    width: 100%;
+    padding: 0px 10px;
+    border-radius: 50px;
+    border: 4px solid var(--element-color);
+    height: 42px;
+    font-weight: 600;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+input {
+    margin: auto;
+    width: 100%;
+    padding: 0px 10px;
+    border-radius: 50px;
+    border: none;
+    height: 42px;
+    outline: none;
+    border: none;
+    background-color: var(--element-color);
+    color: inherit;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+input:hover,
+input:active,
+input:focus {
+    background-color: var(--element-color);
+    color: inherit;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.btn-remove{
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: inherit;
+    background-color: var(--element-color);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition-duration: 0.3s;
+    transition-property: box-shadow, transform;
+    font-weight: 600;
+}
+.btn-remove:hover, .btn-remove:focus, .btn-remove:active {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+}

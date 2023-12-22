@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './filter/filter.component';
 import { ChangeCountriesComponent } from './countries/crud1/change-countries/change-countries.component';
 import { AddCountryComponent } from './countries/crud1/add-country/add-country.component';
+import { UpdateCountryComponent } from './countries/crud1/update-country/update-country.component';
+import { DeleteCountryComponent } from './countries/crud1/delete-country/delete-country.component';
 
 
 
@@ -27,6 +29,8 @@ import { AddCountryComponent } from './countries/crud1/add-country/add-country.c
     FilterComponent,
     ChangeCountriesComponent,
     AddCountryComponent,
+    UpdateCountryComponent,
+    DeleteCountryComponent,
     
   ],
   imports: [

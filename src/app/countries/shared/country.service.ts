@@ -34,7 +34,7 @@ export class CountryService {
     return this.http.get<CountryResponse[]>(url2);
   }
   addCountry(country: CountryResponse): Observable<CountryResponse> {
-    return this.countryStorageService.addCountry(country);
+    return this.http.post<CountryResponse>(`${environment.baseUrl}/add`, country);
   }
 
   updateCountry(country: CountryResponse): Observable<CountryResponse | undefined> {

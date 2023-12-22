@@ -7,6 +7,8 @@ import { SearchComponent } from './search/search.component';
 import { FilterComponent } from './filter/filter.component';
 import { ChangeCountriesComponent } from './countries/crud1/change-countries/change-countries.component';
 import { AddCountryComponent } from './countries/crud1/add-country/add-country.component';
+import { UpdateCountryComponent } from './countries/crud1/update-country/update-country.component';
+import { DeleteCountryComponent } from './countries/crud1/delete-country/delete-country.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path:'search', component: SearchComponent},
   {path:'filter', component: FilterComponent},
   {path:'change', component: ChangeCountriesComponent},
-  {path:'add', component: AddCountryComponent}
+  {path:'add', component: AddCountryComponent},
+  {path:'update', component: UpdateCountryComponent},
+  {path:'delete', component:DeleteCountryComponent}
 ];
 
 const routerOptions: ExtraOptions = {

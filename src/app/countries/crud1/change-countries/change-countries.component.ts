@@ -18,4 +18,12 @@ export class ChangeCountriesComponent {
   addCountry(){
     this.router.navigate(['add']);
   }
+
+  countryUpdate(){
+    this.router.navigate(['update']);
+  }
+
+  countryDelete(){
+    this.router.navigate(['delete']);
+  }
 }
