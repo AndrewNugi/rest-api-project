@@ -44,13 +44,6 @@ export class CountryService {
   deleteCountry(name: string): Observable<void> {
     return this.countryStorageService.deleteCountry(name);
   }
- /* filterCountriesByRegion(region: string): Observable<CountryResponse[]> {
-    return this.countries.pipe(
-      map((countriesArray: CountryResponse[]) => {
-        // Use the filter method to filter countries based on the region
-        return countriesArray.filter(country => country.region === region);
-      })
-    );
-  }*/
+
   
 }

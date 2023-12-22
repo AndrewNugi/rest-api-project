@@ -32,10 +32,4 @@ export class CountryDetailComponent implements OnInit{
     return currencies.map(currencies => currencies.AED).join(',');
   }
 
-  /*displayLanguages(languages: Languages[]){
-    return languages.map(languages => languages.name).join(',');
-
-  }
-*/
-
 }

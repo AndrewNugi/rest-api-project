@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CountryResponse, Region, Side, StartOfWeek, Status } from '../../shared/models/country';
 import { CountryService } from '../../shared/country.service';
 import { Router } from '@angular/router';
 
@@ -19,7 +18,6 @@ export class DeleteCountryComponent {
 
   removeCountry() {
     if (this.countryName.trim() === '') {
-      // Handle empty input, e.g., show a message to the user
       console.warn('Please enter a country name.');
       return;
     }
@@ -27,12 +25,11 @@ export class DeleteCountryComponent {
     this.countryService.deleteCountry(this.countryName).subscribe({
       next: () => {
         console.log(`Country ${this.countryName} deleted successfully.`);
-        // Optionally, you might want to reload the list of countries from the server
-        // this.loadCountries();
+        this.router.navigate(['/countries']);
       },
       error: (error: any) => {
         console.error(`Error deleting country ${this.countryName}: `, error);
-        // Handle error, e.g., show an error message to the user
+        alert('Error deleting country. Try again.');
       }
     });
   }

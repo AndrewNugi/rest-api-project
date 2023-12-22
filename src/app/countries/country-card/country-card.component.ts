@@ -27,18 +27,4 @@ export class CountryCardComponent implements OnInit{
     this.router.navigate(['/country', name]);
   }
 
-/*  onRegionSelected(region:string) {
-    this.router.navigate(['/region', region]);
-  }
-
-  filterCountriesByRegion(region: string): Observable<CountryResponse[]> {
-    return this.countries.pipe(
-      map((countriesArray: CountryResponse[]) => {
-        // Use the filter method to filter countries based on the region
-        return countriesArray.filter(country => country.region === region);
-      })
-    );
-  }
-*/
-
 }

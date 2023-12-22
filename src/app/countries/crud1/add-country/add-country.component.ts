@@ -1,10 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CountryService } from '../../shared/country.service';
 import { CountryResponse } from '../../shared/models/country';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Continent, Region, Side, StartOfWeek, Status, Idd } from '../../shared/models/country';
-import { error } from 'console';
+import { Region, Side, StartOfWeek, Status } from '../../shared/models/country';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-country',
@@ -65,15 +63,17 @@ export class AddCountryComponent {
   statuses = Object.values(Status);
   startOfWeeks = Object.values(StartOfWeek);
 
-  constructor(private countryService: CountryService) {}
+  constructor(private countryService: CountryService, private router: Router ) {}
 
   addCountry() {
     this.countryService.addCountry(this.newCountry).subscribe({
       next: (addedCountry: CountryResponse) => {
-        // Handle success, e.g., navigate to the country list
+        console.log('Country added succesfully:', addedCountry);
+        this.router.navigate(['/countries'])
       },
       error: (error: any) => {
-        // Handle error
+        console.error('Error adding country:', error);
+        alert('Error adding country. Try again');
       }
   });
   }

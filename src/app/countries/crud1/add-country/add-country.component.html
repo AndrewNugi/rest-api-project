@@ -41,11 +41,7 @@
             <select id="startofweek" name="startofweek" [(ngModel)]="newCountry.startOfWeek" >
                 <option *ngFor="let startOfWeek of startOfWeeks" [value]="startOfWeek">{{ startOfWeek }}</option>
             </select>
-
-
     </div>
-    <!-- Add other form fields as needed for other properties in newCountry -->
-  
     <button type="submit">Add Country</button>
 </form>
 

@@ -46,19 +46,19 @@ export class UpdateCountryComponent {
   ) {}
 
   onUpdateCountry() {
-    // Construct the updated country object based on user input
+    
     this.countryService.updateCountry(this.updateFormData).subscribe({
       next: (updatedCountry: CountryResponse | undefined) => {
         if (updatedCountry) {
           console.log(`Country ${updatedCountry.name.common} updated successfully.`);
-          // Handle success, e.g., reload data or navigate to the country list
+          this.router.navigate(['/countries']);
         } else {
           console.error('Updated country is undefined.');
-          // Handle the case where the updated country is undefined
+          alert('Updated country is not defined. Try again.')
         }
       error: (error: any) => {
         console.error('Error updating country: ', error);
-        // Handle error
+        alert('Error updating country. Try again.')
       }
     }});
     
