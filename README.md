@@ -16,21 +16,22 @@ Run `ng build` to build the project.
 
 To get started with this project, you'll need to have the following installed:
 
-Node.js - JavaScript runtime  
-npm - Node Package Manager  
-Angular CLI - Command Line Interface for Angular  
-Tailwind CSS -    
+Node.js - JavaScript runtime.  
+npm - Node Package Manager.  
+Angular CLI - Command Line Interface for Angular.  
+Tailwind CSS - Utility-first CSS framework that is used to style web applications.
 
-1. Clone the repository
+
+1. Clone the repository.
 ```
 git clone https://github.com/AndrewNugi/rest-api-project.git
 cd rest-api-project
 ```
-2. Install dependencies
+2. Install dependencies.
 ```
 npm install
 ```
-3. Install TailWind CSS to style the application and create its configuration file
+3. Install TailWind CSS to style the application and create its configuration file.
 ```
 npm install tailwindcss
 npx tailwindcss init -p
